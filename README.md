@@ -10,6 +10,15 @@ How to use:
 
 Sample code:
 ```C
+#include "sst26vf016b.h"
+#include <ctype.h>
+
+#define FLASH_SIZE (2*1024*1024)
+#define FLASH_PAGE 256
+#define FLASH_RN ((FLASH_SIZE-8*1024)/FLASH_PAGE)
+
+u8_t flash_chunk[FLASH_PAGE+1];
+
 void init_flash(void) {
 	struct device * dev;
 	sst26vf016b_api_t * api;
